@@ -18,10 +18,10 @@
 }
 @media (min-width: 310px) and (max-width: 768px) {
   .buttons-wrapper {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
 
-    height: 2em;
+    height: 4em;
 
     margin: 2px;
     border-radius: 20px;

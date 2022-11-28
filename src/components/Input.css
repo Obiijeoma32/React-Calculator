@@ -26,14 +26,14 @@
   }
   .results {
     flex: 1;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 1px;
     font-weight: 500;
     margin-left: -8px;
   }
   .text {
     flex: 1;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 2px;
     font-weight: 400;
   }
