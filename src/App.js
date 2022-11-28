@@ -1,6 +1,7 @@
 import Buttons from "./components/Buttons";
 import Input from "./components/Input";
 import { useState } from "react";
+
 import * as math from "mathjs";
 import "./App.css";
 
@@ -16,8 +17,37 @@ export default function App() {
     setResult("");
   }
   function calculateResult() {
-    const input = text.join("");
-    setResult(math.evaluate(input));
+    try {
+      const input = text.join("");
+
+      setResult(math.evaluate(input));
+    } catch (err) {
+      setResult("Error");
+    }
+  }
+  function calculateSquareRoot() {
+    const num = text.join("");
+    setResult(math.sqrt(num));
+  }
+
+  function cosine() {
+    try {
+      const baby = text.join("");
+
+      setResult(math.cos(baby));
+    } catch (err) {
+      setResult("Error");
+    }
+  }
+  function backSpace() {
+    setText(text.slice(0, text.length - 1));
+  }
+  function addMinus() {
+    try {
+      setResult(eval(text.join("")));
+    } catch (err) {
+      setResult("Error");
+    }
   }
   return (
     <>
@@ -46,9 +76,18 @@ export default function App() {
             <Buttons symbol="0" handleClick={addToText} />
             <Buttons symbol="." handleClick={addToText} />
             <Buttons symbol="-" handleClick={addToText} />
+            <Buttons symbol="+/-" color="#fc5908" handleClick={addMinus} />
+          </div>
+          <div className="rows">
+            <Buttons symbol="%" handleClick={addToText} />
+            <Buttons symbol="√" handleClick={calculateSquareRoot} />
+            <Buttons symbol="cos" handleClick={cosine} />
+            <Buttons symbol="C" color="#fc5908" handleClick={backSpace} />
+          </div>
+          <div className="rows">
+            <Buttons symbol="Clear" className="clear" handleClick={inputReset} />
             <Buttons symbol="=" color="#fc5908" handleClick={calculateResult} />
           </div>
-          <Buttons symbol="Clear" color="#fc5908" handleClick={inputReset} />
         </div>
       </div>
     </>
