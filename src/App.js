@@ -44,7 +44,7 @@ export default function App() {
   }
   function addMinus() {
     try {
-      setResult(eval(text.join("")));
+      setResult(math.evaluate(text.join("")));
     } catch (err) {
       setResult("Error");
     }
